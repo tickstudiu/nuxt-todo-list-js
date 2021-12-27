@@ -12,7 +12,6 @@ export default {
 		ENVIRONMENT: process.env.ENVIRONMENT,
 		APP_BASE_URL: process.env.APP_BASE_URL,
 		API_BASE_URL: process.env.API_BASE_URL,
-		API_PATH_PREFIX: process.env.API_PATH_PREFIX,
 		IS_PRODUCTION: process.env.ENVIRONMENT === 'production',
 		IS_PRE_PRODUCTION: process.env.ENVIRONMENT === 'preproduction',
 	},
