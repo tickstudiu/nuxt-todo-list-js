@@ -1,0 +1,10 @@
+{
+  "todos": [
+    {
+      "uid": 1,
+      "slug": "json-server",
+      "name": "typicode",
+      "details": "detail"
+    }
+  ]
+}
