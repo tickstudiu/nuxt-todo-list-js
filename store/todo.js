@@ -16,7 +16,7 @@ export default {
 		async fetchTodoList({ commit }) {
 			try {
 				const res = await this.$services.todo.index();
-				commit('FETCH_TODO_SUCCESS', transformTodoList(res.data));
+				commit('FETCH_TODO_SUCCESS', transformTodoList(res));
 			} catch (error) {
 				commit('FETCH_TODO_ERROR');
 			}

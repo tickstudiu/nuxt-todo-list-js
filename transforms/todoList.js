@@ -3,7 +3,7 @@
  * @returns {[Item]}
  */
  export const transformTodoList = (TodoList = []) => {
-	return TodoList.todos.map(transformtItem);
+	return TodoList.map(transformtItem);
 };
 
 /**
