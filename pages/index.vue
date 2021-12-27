@@ -13,7 +13,7 @@
         <div class="border-t"></div>
         <footer class="px-4 py-2 flex justify-between items-center">
           <a href="#"><small class="text-xs">link to >></small></a>
-          <small class="text-xs">{{ todo.date.createdAt }}</small>
+          <small class="text-xs">{{ todo.date.createdAt | dateDisplay }}</small>
         </footer>
       </li>
     </ul>
