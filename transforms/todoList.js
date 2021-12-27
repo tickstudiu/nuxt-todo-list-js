@@ -1,3 +1,5 @@
+import { transformtDate } from '@/transforms/date'
+
 /**
  * @param {Array} TodoList
  * @returns {[Item]}
@@ -12,9 +14,10 @@
  */
  export const transformtItem = (item = {}) => {
 	return {
-		uid: item.uid,
-		slug: item.slug,
-		name: item.name,
-		details: item.details,
+		id: item._id,
+		completed: item.completed,
+		owner: item.owner,
+		description: item.description,
+    date: transformtDate(item),
 	};
 };
