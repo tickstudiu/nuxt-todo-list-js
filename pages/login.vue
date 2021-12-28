@@ -17,6 +17,8 @@ import { mapState } from 'vuex'
 export default {
   name: 'LoginPage',
 
+  middleware: 'loggedIn',
+
   data() {
     return {
       form: {

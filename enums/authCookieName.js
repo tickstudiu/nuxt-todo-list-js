@@ -4,5 +4,6 @@
  * @enum {String}
  */
  export default Object.freeze({
-	ACCESS_TOKEN: 'access_token',
+	TOKEN: 'token',
+  IS_LOGGED_IN: 'is_logged_in'
 });

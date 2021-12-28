@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <!-- <div>
     <h5 class="text-2xl mb-4">todo list</h5>
     <ul class="grid grid-cols-1 lg:grid-cols-3 gap-2 lg:gap-4">
       <li v-for="todo in todoList" :key="todo.slug" class="border rounded">
@@ -17,25 +17,28 @@
         </footer>
       </li>
     </ul>
+  </div> -->
+  <div>
+    todo page
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex'
+// import { mapState } from 'vuex'
 
 export default {
   name: 'TodoPage',
 
-  middleware: 'auth',
+  middleware: 'notLoggedIn',
 
-  async fetch({ store }) {
-    await store.dispatch('todo/fetchTodoList')
-  },
+  // async fetch({ store }) {
+  //   await store.dispatch('todo/fetchTodoList')
+  // },
 
   computed: {
-    ...mapState('todo', {
-      todoList: 'list',
-    }),
+    // ...mapState('todo', {
+    //   todoList: 'list',
+    // }),
   },
 }
 </script>
