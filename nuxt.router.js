@@ -4,6 +4,7 @@ import Router from 'vue-router'
 import ROUTE_NAME from '@/enums/routeName'
 import Home from '@/pages/index.vue'
 import Todo from '@/pages/todo/index.vue'
+import Login from '@/pages/login.vue'
 
 Vue.use(Router)
 
@@ -17,6 +18,11 @@ const routes = [
     path: '/todo',
     name: ROUTE_NAME.TODO,
     component: Todo,
+  },
+  {
+    path: '/login',
+    name: ROUTE_NAME.LOGIN,
+    component: Login,
   },
 ]
 

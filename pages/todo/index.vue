@@ -26,6 +26,8 @@ import { mapState } from 'vuex'
 export default {
   name: 'TodoPage',
 
+  middleware: 'auth',
+
   async fetch({ store }) {
     await store.dispatch('todo/fetchTodoList')
   },
