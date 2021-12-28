@@ -15,7 +15,7 @@
         <li v-if="!isLoggedIn" class="text-white">
           <nuxt-link :to="{ name: ROUTE_NAME.LOGIN }" class="uppercase">login</nuxt-link>
         </li>
-        <li v-if="isLoggedIn" class="text-white">
+        <li v-if="isLoggedIn" class="text-white" @click="handleLogout">
           <span class="uppercase">logout</span>
         </li>
       </ul>
@@ -40,5 +40,11 @@ export default {
       isLoggedIn: 'isLoggedIn',
     }),
   },
+
+  methods: {
+    async handleLogout() {
+      await this.$store.dispatch('auth/logout')
+    }
+  }
 }
 </script>
