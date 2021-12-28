@@ -5,8 +5,9 @@
 
 /**
  * @typedef {Object} Item
- * @property {String} uid
- * @property {String} slug
- * @property {String} name
- * @property {String} details
+ * @property {String} id
+ * @property {Boolean} completed
+ * @property {String} owner
+ * @property {String} description
+ * @property {Date} date
  */
