@@ -47,7 +47,8 @@ export default {
 
         // Login with email / password
         const res = await this.$services.auth.user.login(email, password)
-        console.log(transformUser(res))
+        const user = transformUser(res)
+        console.log(user)
 
       } catch (error) {
         commit('USER_LOGIN_FAILED')

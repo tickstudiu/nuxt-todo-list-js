@@ -1,5 +1,8 @@
 <template>
-  <div>login</div>
+  <div>
+    <h5>login</h5>
+    <BaseInput />
+  </div>
 </template>
 
 <script>
