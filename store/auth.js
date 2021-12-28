@@ -50,6 +50,7 @@ export default {
         const user = transformUser(res)
         console.log(user)
 
+        commit('SET_LOADING', false)
       } catch (error) {
         commit('USER_LOGIN_FAILED')
         commit('SET_LOADING', false)

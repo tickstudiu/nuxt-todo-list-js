@@ -1,32 +1,41 @@
 <template>
   <div>
     <section class="mb-2">
-      <BaseInput v-model="from.email" label="email" type="email"/>
-      <BaseInput v-model="from.password" label="pwd" type="password"/>
+      <BaseInput v-model="form.email" label="email" type="email"/>
+      <BaseInput v-model="form.password" label="pwd" type="password"/>
     </section>
-    <BaseButton @click="handleLogin">
-      <span class="text-white uppercase">submit</span>
+    <BaseButton :disabled="isLoading" @click="handleLogin">
+      <span v-if="!isLoading" class="text-white uppercase">submit</span>
+      <span v-else class="text-gray-200 uppercase">loading</span>
     </BaseButton>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
 
 export default {
   name: 'LoginPage',
 
   data() {
     return {
-      from: {
-        email: '',
-        password: '',
+      form: {
+        email: 'muh.nurali43@gmail.com',
+        password: '12345678',
+        redirectPage: '/'
       }
     }
   },
 
+  computed: {
+    ...mapState('auth', {
+      isLoading: 'isLoading',
+    }),
+  },
+
   methods: {
-    handleLogin() {
-      console.log(this.from)
+    async handleLogin() {
+      await this.$store.dispatch('auth/login', this.form)
     }
   }
 }

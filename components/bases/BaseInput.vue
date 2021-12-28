@@ -1,6 +1,6 @@
 <template>
   <label :for="name">
-    {{ label }}
+    <span v-if="label" class="block">{{ label }}</span>
     <input
       :value="value" class="w-full appearance-none focus:outline-none border-b-2 focus:border-black py-1 px-2"
       :type="type" :name="name" :placeholder="name"
@@ -16,7 +16,7 @@ export default {
   props: {
     label: {
       type: String,
-      required: true,
+      default: null,
     },
     value: {
       type: String,
@@ -24,13 +24,13 @@ export default {
     },
     type: {
       type: String,
-      default: 'text'
+      default: 'text',
     }
   },
 
   computed: {
     name() {
-      return this.label.toLowerCase();
+      return this.label?.toLowerCase() ?? null;
     },
   },
 }
