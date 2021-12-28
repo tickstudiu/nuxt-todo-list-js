@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h5>todo list</h5>
-    <ul class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+    <h5 class="text-2xl mb-4">todo list</h5>
+    <ul class="grid grid-cols-1 lg:grid-cols-3 gap-2 lg:gap-4">
       <li v-for="todo in todoList" :key="todo.slug" class="border rounded">
         <main class="p-4">
           <h6 class="mb-2 text-xl">{{ todo.description }}</h6>

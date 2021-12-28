@@ -47,6 +47,8 @@ export default {
     '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
+    // https://github.com/nuxt-community/router-module
+    '@nuxtjs/router',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -56,6 +58,15 @@ export default {
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
   ],
+
+  // https://github.com/nuxt-community/router-module
+  routerModule: {
+    fileName: 'nuxt.router.js',
+    keepDefaultRouter: true,
+    parsePages: false,
+  },
+
+  baseUrl: process.env.APP_BASE_URL,
 
   /**
 	 * Axios module configuration
