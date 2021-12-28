@@ -15,6 +15,9 @@
         <li v-if="!isLoggedIn" class="text-white">
           <nuxt-link :to="{ name: ROUTE_NAME.LOGIN }" class="uppercase">login</nuxt-link>
         </li>
+        <li v-if="isLoggedIn" class="text-white">
+          <nuxt-link :to="{ name: ROUTE_NAME.PROFILE }" class="uppercase">profile</nuxt-link>
+        </li>
         <li v-if="isLoggedIn" class="text-white" @click="handleLogout">
           <span class="uppercase">logout</span>
         </li>

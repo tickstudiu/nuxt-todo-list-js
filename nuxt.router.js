@@ -4,6 +4,7 @@ import Router from 'vue-router'
 import ROUTE_NAME from '@/enums/routeName'
 import Home from '@/pages/index.vue'
 import Todo from '@/pages/todo/index.vue'
+import Profile from '@/pages/Profile/index.vue'
 import Login from '@/pages/login.vue'
 import Register from '@/pages/register.vue'
 
@@ -29,6 +30,11 @@ const routes = [
     path: '/register',
     name: ROUTE_NAME.REGISTER,
     component: Register,
+  },
+  {
+    path: '/profile',
+    name: ROUTE_NAME.PROFILE,
+    component: Profile,
   },
 ]
 

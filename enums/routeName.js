@@ -8,4 +8,5 @@ export default Object.freeze({
 	TODO: 'TodoPage',
 	LOGIN: 'LoginPage',
   REGISTER: 'RegisterPage',
+  PROFILE: 'ProfilePage',
 });
