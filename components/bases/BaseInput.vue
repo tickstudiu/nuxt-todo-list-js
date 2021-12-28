@@ -3,7 +3,8 @@
     {{ label }}
     <input
       :value="value" class="w-full appearance-none focus:outline-none border-b-2 focus:border-black py-1 px-2"
-      type="text" :name="name" @input="$emit('input', $event.target.value)"
+      :type="type" :name="name" :placeholder="name"
+      @input="$emit('input', $event.target.value)"
     />
   </label>
 </template>
@@ -21,6 +22,10 @@ export default {
       type: String,
       required: true,
     },
+    type: {
+      type: String,
+      default: 'text'
+    }
   },
 
   computed: {

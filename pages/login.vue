@@ -1,9 +1,12 @@
 <template>
   <div>
-    <h5>login</h5>
-    <BaseInput v-model="from.email" label="label"/>
-    <BaseInput v-model="from.password" label="label"/>
-    <button @click="handleLogin">submit</button>
+    <section class="mb-2">
+      <BaseInput v-model="from.email" label="email" type="email"/>
+      <BaseInput v-model="from.password" label="pwd" type="password"/>
+    </section>
+    <BaseButton @click="handleLogin">
+      <span class="text-white uppercase">submit</span>
+    </BaseButton>
   </div>
 </template>
 
@@ -15,8 +18,8 @@ export default {
   data() {
     return {
       from: {
-        email: 'te',
-        password: 'tes',
+        email: '',
+        password: '',
       }
     }
   },
