@@ -1,4 +1,5 @@
 import { transformTodoList } from '~/transforms/todoList'
+import AUTH_COOKIE_NAME from '@/enums/authCookieName';
 
 export default {
 	state: () => ({
@@ -15,7 +16,8 @@ export default {
 	actions: {
 		async fetchTodoList({ commit }) {
 			try {
-				const res = await this.$services.todo.index();
+        const token = this.$cookies.get(AUTH_COOKIE_NAME.TOKEN)
+				const res = await this.$services.todo.index(token);
 				commit('FETCH_TODO_SUCCESS', transformTodoList(res.data));
 			} catch (error) {
 				commit('FETCH_TODO_ERROR');

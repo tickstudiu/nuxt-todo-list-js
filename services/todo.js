@@ -2,8 +2,12 @@ export default ($axios) => ({
   /**
    * @returns {ItemList}
    */
-	index() {
-		return $axios.$get(`/task`);
+	index(token) {
+		return $axios.$get(`/task`, {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    });
 	},
 });
 

@@ -6,7 +6,7 @@
         <li class="text-white">
           <nuxt-link :to="{ name: ROUTE_NAME.INDEX }" class="uppercase">home</nuxt-link>
         </li>
-        <li class="text-white">
+        <li v-if="isLoggedIn" class="text-white">
           <nuxt-link :to="{ name: ROUTE_NAME.TODO }" class="uppercase">todo</nuxt-link>
         </li>
         <li v-if="!isLoggedIn" class="text-white">
