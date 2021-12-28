@@ -1,17 +1,6 @@
 <template>
   <div>
-    <nav>
-      <ul
-        class="flex justify-start gap-4 lg:gap-6 items-center px-2 lg:px-4 py-4 bg-black"
-      >
-        <li class="text-white">
-          <nuxt-link :to="{ name: ROUTE_NAME.INDEX }" class="uppercase">home</nuxt-link>
-        </li>
-        <li class="text-white">
-          <nuxt-link :to="{ name: ROUTE_NAME.TODO }" class="uppercase">todo</nuxt-link>
-        </li>
-      </ul>
-    </nav>
+    <MenuItemList />
     <main class="p-2 lg:p-4">
       <nuxt />
     </main>
@@ -19,15 +8,13 @@
 </template>
 
 <script>
-import ROUTE_NAME from '@/enums/routeName'
+import MenuItemList from '@/components/MenuItemList.vue'
 
 export default {
   name: 'LayoutDefault',
 
-  data() {
-    return {
-      ROUTE_NAME,
-    }
-  },
+  components: {
+    MenuItemList,
+  }
 }
 </script>
