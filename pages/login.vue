@@ -1,8 +1,10 @@
 <template>
   <div>
     <section class="mb-2">
-      <BaseInput v-model="form.email" label="email" type="email"/>
-      <BaseInput v-model="form.password" label="pwd" type="password"/>
+      <BaseInput v-model="loginForm.email" label="email" type="email"/>
+      <div v-if="!$v.loginForm.email.required" class="error">Field is required</div>
+      <BaseInput v-model="loginForm.password" label="pwd" type="password"/>
+      <div v-if="!$v.loginForm.password.required" class="error">Field is required</div>
     </section>
     <BaseButton :disabled="isLoading" @click="handleLogin">
       <span v-if="!isLoading" class="text-white uppercase">submit</span>
@@ -13,21 +15,14 @@
 
 <script>
 import { mapState } from 'vuex'
+import FormValidation from '~/mixins/FormValidation'
 
 export default {
   name: 'LoginPage',
 
-  middleware: 'loggedIn',
+  mixins: [FormValidation],
 
-  data() {
-    return {
-      form: {
-        email: 'muh.nurali43@gmail.com',
-        password: '12345678',
-        redirectPage: '/'
-      }
-    }
-  },
+  middleware: 'loggedIn',
 
   computed: {
     ...mapState('auth', {
@@ -37,7 +32,12 @@ export default {
 
   methods: {
     async handleLogin() {
-      await this.$store.dispatch('auth/login', this.form)
+      // validation login form
+      this.$v.loginForm.$touch()
+
+      if(!this.$v.loginForm.$error){
+        await this.$store.dispatch('auth/login', this.form)
+      }
     }
   }
 }

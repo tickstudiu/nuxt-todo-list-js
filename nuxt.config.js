@@ -37,6 +37,7 @@ export default {
 		'~/plugins/services.js',
 		'~/plugins/filters.js',
 		'~/plugins/globalComponents.js',
+		'~/plugins/vuePlugins.js',
 	],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

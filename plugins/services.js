@@ -71,7 +71,7 @@ export default (context, inject) => {
 					await store.dispatch('auth/logout');
 				} else {
 					// Try refreshing token
-					await store.dispatch('auth/refreshToken');
+					// await store.dispatch('auth/refreshToken');
 					// Count how many times this request try to call the same fetch again
 					error.config.headers['x-req-retry'] = xReqRetry ? xReqRetry + 1 : 1;
 					// And call the same fetch again
