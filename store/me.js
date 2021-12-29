@@ -1,5 +1,4 @@
 import { transformProfile } from '@/transforms/auth';
-import AUTH_COOKIE_NAME from '@/enums/authCookieName';
 
 export default {
 	state: () => ({
@@ -22,8 +21,7 @@ export default {
 	actions: {
 		async fetchProfile({ commit }) {
 			try {
-        const token = this.$cookies.get(AUTH_COOKIE_NAME.TOKEN)
-				const res = await this.$services.me.profile.index(token)
+				const res = await this.$services.me.profile.index()
         const profile = transformProfile(res)
 
 				commit('FETCH_PROFILE_SUCCESS', profile)

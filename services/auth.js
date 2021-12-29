@@ -7,12 +7,8 @@ export default ($axios) => ({
       });
     },
 
-    logout(token) {
-      return $axios.$post(`/user/logout`, null, {
-        headers: {
-          Authorization: 'Bearer ' + token
-        }
-      });
+    logout() {
+      return $axios.$post(`/user/logout`);
     }
 	},
 });

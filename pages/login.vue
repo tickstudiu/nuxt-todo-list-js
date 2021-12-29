@@ -36,7 +36,7 @@ export default {
       this.$v.loginForm.$touch()
 
       if(!this.$v.loginForm.$error){
-        await this.$store.dispatch('auth/login', this.form)
+        await this.$store.dispatch('auth/login', this.loginForm)
       }
     }
   }

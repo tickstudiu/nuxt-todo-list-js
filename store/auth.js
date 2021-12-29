@@ -127,8 +127,7 @@ export default {
     async logout({ commit, dispatch }) {
 			commit('SET_LOADING', true);
 			try {
-        const token = this.$cookies.get(AUTH_COOKIE_NAME.TOKEN);
-				await this.$services.auth.user.logout(token);
+				await this.$services.auth.user.logout();
 
         await dispatch('_removeAuthTokenFromCookie');
 				commit('USER_LOGOUT_SUCCESS');
