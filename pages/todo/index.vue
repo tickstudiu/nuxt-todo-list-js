@@ -1,7 +1,10 @@
 <template>
   <div>
-    <h5 class="text-2xl mb-4">todo list</h5>
-    <ul class="grid grid-cols-1 lg:grid-cols-3 gap-2 lg:gap-4">
+    <header class="flex justify-between items-center mb-4">
+      <h5 class="text-2xl">todo list</h5>
+      <nuxt-link :to="{name: ROUTE_NAME.TODO_CREATE}">create</nuxt-link>
+    </header>
+    <ul v-if="todoList" class="grid grid-cols-1 lg:grid-cols-3 gap-2 lg:gap-4">
       <li v-for="todo in todoList" :key="todo.slug" class="border rounded">
         <main class="p-4">
           <h6 class="mb-2 text-xl">{{ todo.description }}</h6>
@@ -21,11 +24,18 @@
 
 <script>
 import { mapState } from 'vuex'
+import ROUTE_NAME from '@/enums/routeName'
 
 export default {
   name: 'TodoPage',
 
   middleware: 'notLoggedIn',
+
+  data() {
+    return {
+      ROUTE_NAME
+    }
+  },
 
   async fetch({ store }) {
     await store.dispatch('todo/fetchTodoList')
