@@ -13,7 +13,7 @@ export default {
         name: 'Muhammad Nur Ali',
         email: 'muh.nurali43@gmail.com',
         password: '12345678',
-        age: 20,
+        age: "20",
       }
     }
   },

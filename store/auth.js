@@ -24,7 +24,16 @@ export default {
       state.isLoggedIn = true
     },
 
+    USER_REGISTER_SUCCESS(state, token = null) {
+      state.token = token
+      state.isLoggedIn = true
+    },
+
     USER_LOGIN_FAILED(state) {
+      state.isLoggedIn = false
+    },
+
+    USER_REGISTER_FAILED(state) {
       state.isLoggedIn = false
     },
 
@@ -45,7 +54,7 @@ export default {
 			if (state.token) {
 				const cookieOptions = {
 					...defaultCookieOptions,
-					maxAge: 87600, // 1 day
+					maxAge: 31536000, // 1 year
 				};
 				this.$cookies.set(AUTH_COOKIE_NAME.IS_LOGGED_IN, state.isLoggedIn, cookieOptions);
 				this.$cookies.set(AUTH_COOKIE_NAME.TOKEN, state.token, cookieOptions);
@@ -123,6 +132,32 @@ export default {
 					: null,
 			]);
 		},
+
+    /**
+     * register with name / age / email / password
+     */
+    async register({ commit, dispatch }, {name, age, email, password}) {
+      commit('SET_LOADING', true);
+      try {
+        const res = await this.$services.auth.user.register(name, age, email, password);
+        const user = transformUser(res)
+
+        dispatch('_saveTokenToCookie', user.token);
+				commit('USER_REGISTER_SUCCESS', user.token);
+
+        // Exchange CRM's token with access_token
+				dispatch('_saveAuthStateToCookie');
+
+        window.location.href = '/';
+
+        commit('SET_LOADING', false)
+      } catch (error) {
+        commit('USER_REGISTER_FAILED')
+        commit('SET_LOADING', false)
+
+        throw error
+      }
+    },
 
     async logout({ commit, dispatch }) {
 			commit('SET_LOADING', true);
