@@ -1,9 +1,12 @@
 export default ($axios) => ({
-  /**
-   * @returns {ItemList}
-   */
 	index() {
 		return $axios.$get(`/task`);
 	},
+
+  create(description) {
+    return $axios.$post(`/task`, {
+      description
+    });
+  },
 });
 

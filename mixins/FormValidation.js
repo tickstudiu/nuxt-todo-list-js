@@ -1,4 +1,4 @@
-import { required } from 'vuelidate/lib/validators'
+import { required, maxLength } from 'vuelidate/lib/validators'
 
 export default {
   data() {
@@ -14,6 +14,10 @@ export default {
         email: 'muh.nurali43@gmail.com',
         password: '12345678',
         age: "20",
+      },
+
+      createTodoForm: {
+        description: 'reading book',
       }
     }
   },
@@ -44,6 +48,13 @@ export default {
         },
         age: {
           required,
+        },
+      },
+
+      createTodoForm: {
+        description: {
+          required,
+          maxLength: maxLength(255),
         },
       }
     }
